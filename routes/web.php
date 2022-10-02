@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CustomersController;
+use App\Http\Controllers\Test;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +15,11 @@ use App\Http\Controllers\CustomerController;
 */
 
 Route::get('/', function () {
-   
-    return redirect()->route('customers.index');
+    return view('welcome');
 });
-Route::resource('/customers', CustomerController::class);
-// Route::get("/customers/{id}/edit",[CustomerController::class,'edit'])->name('customers.edit');
+Route::get('customers/',[CustomersController::class,'index'])->name('customers.index');
+Route::get('customer/create',[CustomersController::class,'create'])->name('customer.create');
+Route::post('customer/create',[CustomersController::class,'store']);
+Route::get('customer/edit/{id}',[CustomersController::class,'edit']);
+Route::put('customer/{id}',[CustomersController::class,'update']);
+Route::get('customer/{id}',[CustomersController::class,'destroy']);
