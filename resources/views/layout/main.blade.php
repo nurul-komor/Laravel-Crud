@@ -1,5 +1,6 @@
-@include("layout.header")
-<div class="container-fluid">
-    @yield("main-section")
+@include('layout.header')
+@include('layout.navbar')
+<div class="container mt-3">
+    @yield('main-section')
 </div>
 @include("layout.footer")
