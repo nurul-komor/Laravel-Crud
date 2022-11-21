@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\Test;
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +25,6 @@ Route::post('customer/create',[CustomersController::class,'store']);
 Route::get('customer/edit/{id}',[CustomersController::class,'edit']);
 Route::put('customer/{id}',[CustomersController::class,'update']);
 Route::get('customer/{id}',[CustomersController::class,'destroy']);
+
+Route::get("customers/trash",[CustomersController::class,'trash'])->name('customers.trash');
+Route::get("customer/restore/{id}",[CustomersController::class,'restore'])->name('customers.restore');

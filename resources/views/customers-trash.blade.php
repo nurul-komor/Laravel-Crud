@@ -11,11 +11,8 @@
     @endif
 <div class="row">
     <div class="col-12 mb-3">
-        <a href="{{ route('customer.create') }}"><button class="btn btn-primary float-end" type="submit">Create
-                Customer</button></a>
-                
-        <a  href="{{ route('customers.trash') }}"><button class="mx-2 btn btn-danger float-end" type="submit">
-                Trash</button></a>
+        <a href="{{ route('customers.index') }}"><button class="btn btn-primary float-end" type="submit">
+                Customers</button></a>
     </div>
     <h6></h6>
     <div class="col-12">
@@ -46,9 +43,9 @@
                         </td>
                         <td>
                             <a href="{{ url('/') }}/customer/edit/{{$customer->id}}"><button type="submit"
-                                    class="btn btn-primary">Edit</button></a>
-                            <a href="customer/{{$customer->id}}" <button type="submit"
-                                class="btn btn-danger">Move to trash</button>
+                                    class="btn btn-primary">Delete</button></a>
+                            <a href="{{ url('customer/restore') }}/{{$customer->id}}"> <button type="submit"
+                                class="btn btn-danger">Restore</button>
                             </a>
                         </td>
                     </tr>
@@ -60,9 +57,7 @@
             {{ $customers->links() }}
         </div>
        
-        <a href="{{ $customers->previousPageUrl() }}"><button class="btn btn-primary">Next page</button></a>
-        <a href="{{ $customers->nextPageUrl() }}"><button class="btn btn-primary">Previous page</button></a>
-     
+       
             
             
     </div>
